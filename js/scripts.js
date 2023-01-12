@@ -1,5 +1,3 @@
-// User Interface Logic
-
 function hideResultsAndError() {
     document.getElementById("error-message").setAttribute("class", "hidden");
     document.getElementById("swings").setAttribute("class", "hidden");
@@ -10,19 +8,17 @@ function hideResultsAndError() {
 
 window.onload = function () {
     hideResultsAndError();
-
     document.querySelector("form").onsubmit = function (event) {
         event.preventDefault();
         hideResultsAndError();
         const age = parseInt(document.querySelector("input#age").value);
         const height = parseInt(document.querySelector("input#height").value);
-
         if (age && height) {
             if (age >= 12 && height >= 60) {
                 document.getElementById("swings").removeAttribute("class");
                 document.getElementById("coaster").removeAttribute("class");
                 document.getElementById("tower").removeAttribute("class");
-            } else if (age >= 12 || height >= 48) {
+            } else if (age >= 12 && height >= 48) {
                 document.getElementById("swings").removeAttribute("class");
                 document.getElementById("coaster").removeAttribute("class");
             } else if (age >= 6) {
